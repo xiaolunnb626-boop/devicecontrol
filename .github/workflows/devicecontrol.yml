@@ -1,39 +1,39 @@
-name: Build DeviceControl APK
+姓名构建DeviceControl安装包谷歌()
 
 # 本文件是唯一需要上传到仓库的文件：它会在云端自己生成整个项目（不需要你再上传 build.gradle、
 # app 文件夹等任何其他文件），然后编译出 APK。只要这一个文件在正确的路径上，就能跑起来。
 
-on:
-  push:
-  workflow_dispatch:
+在……之上：:
+推：:
+工作流程分派(_D)：:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate project files
-        run: |
-          mkdir -p app/src/main/java/com/DL/devcontrol
+作业：:
+建立：:
+run-on:ubuntu-latest: ubuntu-最新
+步骤：:
+-名称：生成项目文件name: 生成项目文件
+运行：|: |
+mkdir-p app/src/main/java/com/DL/devcontrol
           mkdir -p app/src/main/res/values
-          mkdir -p gradle/wrapper
-          cat > settings.gradle <<'DCEOF'
-          include ':app'
-          DCEOF
+mkdir-p梯度/包装
+cat>settings.gradle<<'DCEOF'
+包括"：应用程序"
+DCEOF
 
-          cat > build.gradle <<'DCEOF'
-          buildscript {
-              repositories {
-                  google()
-                  mavenCentral()
+cat>build.gradle<<'DCEOF'
+buildscript{
+存储库{
+谷歌()
+MavenCentral()
               }
-              dependencies {
-                  classpath 'com.android.tools.build:gradle:8.1.4'
+相依性{
+类路径'com.android.tools.build:gradle:8.1.4'
               }
           }
 
-          allprojects {
-              repositories {
-                  google()
+AllProjects{
+存储库{
+谷歌()
                   mavenCentral()
               }
           }
